@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aşk Testi ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Kedi Köpek GIF'leri -->
+    <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" class="pet-gif" alt="Kedi">
+    <img src="https://media.giphy.com/media/4Zo41lrcK4rsE/giphy.gif" class="pet-gif" alt="Köpek">
+    <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" class="pet-gif" alt="Kedi">
+    <img src="https://media.giphy.com/media/4Zo41lrcK4rsE/giphy.gif" class="pet-gif" alt="Köpek">
+    <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" class="pet-gif" alt="Kedi">
+    <img src="https://media.giphy.com/media/4Zo41lrcK4rsE/giphy.gif" class="pet-gif" alt="Köpek">
+    <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" class="pet-gif" alt="Kedi">
+    <img src="https://media.giphy.com/media/4Zo41lrcK4rsE/giphy.gif" class="pet-gif" alt="Köpek">
+    
+    <!-- Giriş Sayfası -->
+    <div id="welcome-page" class="page active">
+        <div class="welcome-container">
+            <div class="heart-container">
+                <div class="heart"></div>
+                <div class="heart"></div>
+                <div class="heart"></div>
+            </div>
+            <h1 class="welcome-title">HOŞ GELDİN AŞKIM ❤️</h1>
+            <p class="welcome-subtitle">Senin için özel hazırladığım aşk testini çözmeye hazır mısın?</p>
+            <button id="start-btn" class="start-button">BAŞLAYALIM</button>
+        </div>
+    </div>
+
+    <!-- Test Sayfası -->
+    <div id="test-page" class="page">
+        <div class="test-container">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="question-number">Soru <span id="current-question">1</span>/10</div>
+            
+            <div class="question-container">
+                <div class="question-image">
+                    <img id="question-image" src="" alt="Soru Resmi">
+                </div>
+                <h2 id="question-text" class="question-text"></h2>
+                <div class="options-container">
+                    <button class="option-btn" data-value="1"></button>
+                    <button class="option-btn" data-value="2"></button>
+                    <button class="option-btn" data-value="3"></button>
+                    <button class="option-btn" data-value="4"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sonuç Sayfası -->
+    <div id="result-page" class="page">
+        <div class="result-container">
+            <div class="celebration">
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+                <div class="confetti"></div>
+            </div>
+            <div class="fireworks">
+                <div class="firework"></div>
+                <div class="firework"></div>
+                <div class="firework"></div>
+                <div class="firework"></div>
+                <div class="firework"></div>
+                <div class="firework"></div>
+                <div class="firework"></div>
+                <div class="firework"></div>
+                <div class="firework"></div>
+                <div class="firework"></div>
+            </div>
+            <h1 class="result-title">🎉 TEBRİKLER! 🎉</h1>
+            <h2 class="result-subtitle">AŞKINIZ ALİYİ KAZANDINIZ!</h2>
+            <p class="result-text">ONU ARAYINIZ ❤️</p>
+            <div class="final-hearts">
+                <div class="heart">❤️</div>
+                <div class="heart">❤️</div>
+                <div class="heart">❤️</div>
+                <div class="heart">❤️</div>
+                <div class="heart">❤️</div>
+            </div>
+            <button id="play-game-btn" class="play-game-button">OYUN OYNA</button>
+            <button id="restart-btn" class="restart-button">Tekrar Başla</button>
+        </div>
+    </div>
+
+    <!-- Yılan Oyunu -->
+    <div id="snake-game" class="page">
+        <div class="game-container">
+                         <div class="game-header">
+                 <h2>🐍 NEJLA YİNE KAÇIYOR 🐍</h2>
+                 <p>ŞİMDİ SIRA OYUNDA!</p>
+                 <div class="score">Süre: <span id="game-time">0</span> saniye | Can: <span id="player-lives">3</span> | Yılan: <span id="snake-count">1</span></div>
+             </div>
+                         <div class="game-area">
+                 <div id="player" class="player">
+                     <img src="1.jpg.jpg" alt="Sen" class="player-img">
+                 </div>
+                 <div id="snake" class="snake">
+                     <div class="snake-head">
+                         <img src="11.jpg" alt="" class="snake-head-img">
+                     </div>
+                 </div>
+                 
+                 <!-- Engeller -->
+                 <div id="obstacles"></div>
+                 
+                 <!-- Pembe Top -->
+                 <div id="pink-ball" class="pink-ball">
+                     <div class="ball-glow"></div>
+                 </div>
+                 
+                 <!-- Mesaj Alanları -->
+                 <div id="success-message" class="game-message success-message">HARİKASIN NEJLA!</div>
+                 <div id="warning-message" class="game-message warning-message">DİKKAT ALİ SENİ YEMEK ÜZERE!</div>
+                 <div id="victory-message" class="game-message victory-message">TEBRİKLER ALİYİ ARAMAYA HAK KAZANDINIZ!</div>
+             </div>
+            <div class="game-controls">
+                <button id="restart-game-btn" class="restart-game-button">Tekrar Oyna</button>
+                <button id="back-to-result-btn" class="back-button">Geri Dön</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test soruları
+        const questions = [
+            {
+                image: "1.jpg.jpg",
+                question: "ALİNİN HAYATININ ANLAMI NEDİR?",
+                options: ["NEJLA SUBAŞI", "SUBAŞI NEJLA", "NEJ SUB", "NEJLAYUS"]
+            },
+            {
+                image: "2.jpg.JPG",
+                question: "ALİYİ AFFET VE ARAR MISIN?",
+                options: ["EVET", "JA", "YES", "Sİ"]
+            },
+            {
+                image: "3.jpg.JPG",
+                question: "LÜTFEN EN BEĞENDİNİZ KİŞİYE TIKLAYIN.",
+                options: ["ALİ", "ALİ FIRAT", "ALİ FIRAT CENGİZ", "KONYA"]
+            },
+            {
+                image: "4.jpg.PNG",
+                question: "KONYAYI ALİSİZ GEÇİRSEYDİNİZ SİZCE NASIL OLURDU?",
+                options: ["ALLAH KORUSUN", "DÜŞÜNEMEDİM BİLE", "AKLIMI KAYBETTİM", "AK PARTİLİYİM"]
+            },
+            {
+                image: "5.jpg.JPG",
+                question: "HAYVAN HEKİMİ OLMANIZ ALİ İLE ALAKASI NEDİR?",
+                options: ["HAYVAN SEVDİĞİM İÇİM", "TÜYLÜ VE SICAK", "DENK GELDİ", "MAMASI UCUZ"]
+            },
+            {
+                image: "6.jpg.JPG",
+                question: "ALİNİN SİZDE EN BEĞENDİĞİ YERİNİZ NERESİDİR?",
+                options: ["GÖZLERİNİZ", "SAÇLARINIZ", "BURNUNUZ", "AYIPTIR DEMESİ AVRET YERLERİNİZ"]
+            },
+            {
+                image: "7.jpg.JPG",
+                question: "ALİ ÖLSÜN MÜ?",
+                options: ["BİLMİYORUM", "BAKARIZ", "GEBERSİN İT", "YOKLUĞUMDA YAŞIYOR MU Kİ?"]
+            },
+            {
+                image: "8.jpg.JPG",
+                question: "BİR SONRAKİ SEÇİMDE KİME OY VERİRSİNİZ?",
+                options: ["DOĞU PERİNÇEK", "OSMAN GÖKÇEK", "ABDULLAH ÖCALAN", "ALİ FIRAT CENGİZ"]
+            },
+            {
+                image: "9.jpg.JPG",
+                question: "ALİYİ TANIMLAMAK İSTESENİZ HANGİSİNİ SEÇERDİNİZ?",
+                options: ["KULUNUZ", "KÖPEĞİNİZ", "UŞAĞINIZ", "HEPSİ"]
+            },
+            {
+                image: "1.jpg.jpg",
+                question: "ALİ İÇİN NE YAPABİLİRSİNİZ?",
+                options: ["ÖLÜRÜM", "ÖLDÜRÜRÜM", "EZERİM", "UYUYABİLİRİM"]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        // Sayfa geçişleri
+        document.getElementById('start-btn').addEventListener('click', startTest);
+        document.getElementById('restart-btn').addEventListener('click', restartTest);
+        document.getElementById('play-game-btn').addEventListener('click', startGame);
+        document.getElementById('restart-game-btn').addEventListener('click', restartGame);
+        document.getElementById('back-to-result-btn').addEventListener('click', backToResult);
+
+        // Seçenek butonları
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', selectOption);
+        });
+
+        function startTest() {
+            document.getElementById('welcome-page').classList.remove('active');
+            document.getElementById('test-page').classList.add('active');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById('question-image').src = question.image;
+            document.getElementById('question-text').textContent = question.question;
+            document.getElementById('current-question').textContent = currentQuestion + 1;
+            
+            // Seçenekleri güncelle
+            const options = document.querySelectorAll('.option-btn');
+            question.options.forEach((option, index) => {
+                options[index].textContent = option;
+            });
+
+            // Progress bar güncelle
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.querySelector('.progress-fill').style.width = progress + '%';
+        }
+
+        function selectOption(event) {
+            const selectedValue = event.target.dataset.value;
+            const selectedText = event.target.textContent;
+            
+            // Doğru cevaplar
+            const correctAnswers = [
+                "NEJLA SUBAŞI", // 1. soru
+                "EVET", // 2. soru
+                "ALİ FIRAT CENGİZ", // 3. soru
+                "DÜŞÜNEMEDİM BİLE", // 4. soru
+                "TÜYLÜ VE SICAK", // 5. soru
+                "GÖZLERİNİZ", // 6. soru
+                "YOKLUĞUMDA YAŞIYOR MU Kİ?", // 7. soru
+                "ALİ FIRAT CENGİZ", // 8. soru
+                "HEPSİ", // 9. soru
+                "UYUYABİLİRİM" // 10. soru
+            ];
+            
+            if (selectedText === correctAnswers[currentQuestion]) {
+                // Doğru cevap
+                score += parseInt(selectedValue);
+                currentQuestion++;
+                
+                if (currentQuestion < questions.length) {
+                    showQuestion();
+                } else {
+                    showResult();
+                }
+            } else {
+                // Yanlış cevap - uyarı göster
+                showWrongAnswer();
+            }
+        }
+        
+                 function showWrongAnswer() {
+             const wrongMessage = document.createElement('div');
+             wrongMessage.className = 'wrong-answer';
+             wrongMessage.innerHTML = `
+                 <div class="wrong-container">
+                     <h3>❌ YANLIŞ CEVAP!</h3>
+                     <p>Lütfen doğru cevabı seçin!</p>
+                     <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">LÜTFEN HÜR İRADENİZLE ALİNİN SEÇTİKLERİNİ SEÇİNİZ</p>
+                     <button onclick="this.parentElement.parentElement.remove()">Tamam</button>
+                 </div>
+             `;
+             document.body.appendChild(wrongMessage);
+             
+             // 3 saniye sonra otomatik kaldır
+             setTimeout(() => {
+                 if (wrongMessage.parentElement) {
+                     wrongMessage.remove();
+                 }
+             }, 3000);
+         }
+
+        function showResult() {
+            document.getElementById('test-page').classList.remove('active');
+            document.getElementById('result-page').classList.add('active');
+        }
+
+        function restartTest() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('result-page').classList.remove('active');
+            document.getElementById('welcome-page').classList.add('active');
+        }
+
+        // Yılan Oyunu Değişkenleri
+        let gameInterval;
+        let gameTime = 0;
+        let isGameRunning = false;
+        let playerX = 50;
+        let playerY = 50;
+        let snakeX = 200;
+        let snakeY = 200;
+        let playerLives = 3;
+        let snakeCount = 1;
+        let pinkBallX = 300;
+        let pinkBallY = 300;
+        let obstacles = [];
+        let snakes = [];
+
+        function startGame() {
+            document.getElementById('result-page').classList.remove('active');
+            document.getElementById('snake-game').classList.add('active');
+            initGame();
+        }
+
+        function initGame() {
+            gameTime = 0;
+            playerLives = 0;
+            snakeCount = 1;
+            isGameRunning = true;
+            playerX = 50;
+            playerY = 50;
+            snakeX = 200;
+            snakeY = 200;
+            pinkBallX = 300;
+            pinkBallY = 300;
+            obstacles = [];
+            snakes = [{x: snakeX, y: snakeY}];
+            
+            updatePlayerPosition();
+            updateSnakePosition();
+            updatePinkBallPosition();
+            createObstacles();
+            updateUI();
+            hideAllMessages();
+            
+            gameInterval = setInterval(() => {
+                if (isGameRunning) {
+                    gameTime++;
+                    updateUI();
+                    moveSnake();
+                    checkCollision();
+                    checkPinkBallCollision();
+                    updateObstacles();
+                }
+            }, 200);
+        }
+
+        function updatePlayerPosition() {
+            const player = document.getElementById('player');
+            player.style.left = playerX + 'px';
+            player.style.top = playerY + 'px';
+        }
+
+        function updateSnakePosition() {
+            const snake = document.getElementById('snake');
+            snake.style.left = snakeX + 'px';
+            snake.style.top = snakeY + 'px';
+        }
+
+        function moveSnake() {
+            // Yılan oyuncuyu çok hızlı takip eder
+            const dx = playerX - snakeX;
+            const dy = playerY - snakeY;
+            
+            if (Math.abs(dx) > 2) {
+                snakeX += dx > 0 ? 8 : -8;
+            }
+            if (Math.abs(dy) > 2) {
+                snakeY += dy > 0 ? 8 : -8;
+            }
+            
+            updateSnakePosition();
+        }
+
+        function updateUI() {
+            document.getElementById('game-time').textContent = gameTime;
+            document.getElementById('player-lives').textContent = playerLives;
+            document.getElementById('snake-count').textContent = snakeCount;
+        }
+
+        function updatePinkBallPosition() {
+            const ball = document.getElementById('pink-ball');
+            ball.style.left = pinkBallX + 'px';
+            ball.style.top = pinkBallY + 'px';
+        }
+
+        function createObstacles() {
+            const obstaclesContainer = document.getElementById('obstacles');
+            obstaclesContainer.innerHTML = '';
+            obstacles = [];
+            
+            for (let i = 0; i < 8; i++) {
+                const obstacle = document.createElement('div');
+                obstacle.className = 'obstacle';
+                obstacle.style.left = Math.random() * 700 + 'px';
+                obstacle.style.top = Math.random() * 700 + 'px';
+                obstaclesContainer.appendChild(obstacle);
+                obstacles.push({
+                    element: obstacle,
+                    x: parseInt(obstacle.style.left),
+                    y: parseInt(obstacle.style.top),
+                    visible: true
+                });
+            }
+        }
+
+        function updateObstacles() {
+            obstacles.forEach((obstacle, index) => {
+                if (Math.random() < 0.01) { // %1 şansla görünürlük değişir
+                    obstacle.visible = !obstacle.visible;
+                    obstacle.element.style.display = obstacle.visible ? 'block' : 'none';
+                }
+            });
+        }
+
+        function checkPinkBallCollision() {
+            const distance = Math.sqrt(
+                Math.pow(playerX - pinkBallX, 2) + Math.pow(playerY - pinkBallY, 2)
+            );
+            
+            if (distance < 50) {
+                playerLives++;
+                showSuccessMessage();
+                movePinkBall();
+                snakeCount++;
+                addNewSnake();
+                
+                // 30 can kazanıldığında zafer
+                if (playerLives >= 30) {
+                    showVictoryMessage();
+                    setTimeout(() => {
+                        gameOver();
+                    }, 3000);
+                }
+            }
+        }
+
+        function movePinkBall() {
+            pinkBallX = Math.random() * 700;
+            pinkBallY = Math.random() * 700;
+            updatePinkBallPosition();
+        }
+
+        function addNewSnake() {
+            const newSnake = {
+                x: Math.random() * 700,
+                y: Math.random() * 700
+            };
+            snakes.push(newSnake);
+        }
+        
+        function showSuccessMessage() {
+            const message = document.getElementById('success-message');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 2000);
+        }
+        
+        function showWarningMessage() {
+            const message = document.getElementById('warning-message');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 2000);
+        }
+        
+        function showVictoryMessage() {
+            const message = document.getElementById('victory-message');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
+        }
+        
+        function hideAllMessages() {
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('warning-message').style.display = 'none';
+            document.getElementById('victory-message').style.display = 'none';
+        }
+
+                 function checkCollision() {
+             // Ana yılan ile çarpışma
+             const distance = Math.sqrt(
+                 Math.pow(playerX - snakeX, 2) + Math.pow(playerY - snakeY, 2)
+             );
+             
+             if (distance < 50) {
+                 playerLives--;
+                 showWarningMessage();
+                 if (playerLives < 0) {
+                     gameOver();
+                 } else {
+                     // Oyuncuyu başlangıç pozisyonuna taşı
+                     playerX = 50;
+                     playerY = 50;
+                     updatePlayerPosition();
+                 }
+             }
+             
+             // Engeller ile çarpışma kontrolü
+             obstacles.forEach((obstacle, index) => {
+                 if (obstacle.visible) {
+                     const obstacleDistance = Math.sqrt(
+                         Math.pow(playerX - obstacle.x, 2) + Math.pow(playerY - obstacle.y, 2)
+                     );
+                     
+                     if (obstacleDistance < 40) {
+                         // Oyuncuyu engelden uzaklaştır
+                         const angle = Math.atan2(playerY - obstacle.y, playerX - obstacle.x);
+                         playerX = obstacle.x + Math.cos(angle) * 50;
+                         playerY = obstacle.y + Math.sin(angle) * 50;
+                         
+                         // Sınırları kontrol et
+                         if (playerX < 0) playerX = 0;
+                         if (playerX > 700) playerX = 700;
+                         if (playerY < 0) playerY = 0;
+                         if (playerY > 700) playerY = 700;
+                         
+                         updatePlayerPosition();
+                     }
+                 }
+             });
+         }
+
+        function gameOver() {
+            isGameRunning = false;
+            clearInterval(gameInterval);
+            
+            const gameOverScreen = document.createElement('div');
+            gameOverScreen.className = 'game-over';
+            gameOverScreen.innerHTML = `
+                <div class="game-over-container">
+                    <h3>🐍 OYUN BİTTİ! 🐍</h3>
+                    <p>${playerLives >= 30 ? 'Tebrikler! Ali\'yi aramaya hak kazandınız!' : 'Nejla yakalandı!'} Süre: ${gameTime} saniye | Can: ${playerLives} | Yılan: ${snakeCount}</p>
+                    <button onclick="restartGame()">Tekrar Oyna</button>
+                    <button onclick="backToResult()">Geri Dön</button>
+                </div>
+            `;
+            document.body.appendChild(gameOverScreen);
+        }
+
+        function restartGame() {
+            const gameOverScreen = document.querySelector('.game-over');
+            if (gameOverScreen) {
+                gameOverScreen.remove();
+            }
+            initGame();
+        }
+
+        function backToResult() {
+            const gameOverScreen = document.querySelector('.game-over');
+            if (gameOverScreen) {
+                gameOverScreen.remove();
+            }
+            document.getElementById('snake-game').classList.remove('active');
+            document.getElementById('result-page').classList.add('active');
+            isGameRunning = false;
+            clearInterval(gameInterval);
+        }
+
+        // Mouse ile oyuncu kontrolü
+        document.addEventListener('mousemove', (e) => {
+            if (isGameRunning) {
+                const gameArea = document.querySelector('.game-area');
+                const rect = gameArea.getBoundingClientRect();
+                
+                playerX = e.clientX - rect.left - 30;
+                playerY = e.clientY - rect.top - 30;
+                
+                // Sınırları kontrol et
+                if (playerX < 0) playerX = 0;
+                if (playerX > rect.width - 60) playerX = rect.width - 60;
+                if (playerY < 0) playerY = 0;
+                if (playerY > rect.height - 60) playerY = rect.height - 60;
+                
+                updatePlayerPosition();
+            }
+        });
+    </script>
+</body>
+</html> 
